@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:future_builder_example/screens/album_screen.dart';
 import 'package:future_builder_example/widgets/album_widget.dart';
 
+import 'screens/posts_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AlbumScreen(),
+      home: PostsScreen(),
     );
   }
 }

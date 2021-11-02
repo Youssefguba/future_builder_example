@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AlbumWidget extends StatelessWidget {
-  dynamic album;
+  Map? album;
   AlbumWidget({Key? key, this.album}) : super(key: key);
 
   @override
@@ -12,11 +12,13 @@ class AlbumWidget extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            album['title'],
+            // AlbumId is int
+            album!['albumId'].toString(),
             style: TextStyle(fontSize: 20),
           ),
           Image.network(
-            album['url'],
+            // url is a string
+            album!['url'],
             height: 400,
             width: 400,
           ),
