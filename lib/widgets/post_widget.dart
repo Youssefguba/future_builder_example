@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:future_builder_example/model/post_model.dart';
 
 class PostWidget extends StatelessWidget {
-  dynamic post;
-  PostWidget({Key? key, this.post}) : super(key: key);
+  PostModel? post;
+  PostWidget({this.post});
+
 
   @override
   Widget build(BuildContext context) {
@@ -10,15 +12,15 @@ class PostWidget extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            title: Text(post['name']),
-            subtitle: Text(post['email']),
+            title: Text(post!.title!),
           ),
           Text(
-            post['body'],
+            post!.title!,
             style: TextStyle(fontSize: 20),
           ),
         ],
       ),
     );
+
   }
 }

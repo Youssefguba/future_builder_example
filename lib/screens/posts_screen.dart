@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:future_builder_example/model/post_model.dart';
 import 'package:future_builder_example/services/network_helper.dart';
 import 'package:future_builder_example/widgets/post_widget.dart';
 
@@ -27,16 +28,16 @@ class _PostsScreenState extends State<PostsScreen> {
       body: FutureBuilder<List<dynamic>>(
         future: listOfPosts,
         builder: (context, snapshot) {
-          if(snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (BuildContext context, int index) {
-                  print('posts ${snapshot.data![index]}');
-                  return PostWidget(post: snapshot.data![index]);
+                  final post =
+                      PostModel.fromMap(snapshot.data![index]);
+                  return PostWidget(post: post);
                 },
               );
-            }
+            // }
           }
           return Center(child: CircularProgressIndicator());
         },
