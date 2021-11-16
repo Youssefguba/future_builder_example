@@ -28,15 +28,14 @@ class _PostsScreenState extends State<PostsScreen> {
       body: FutureBuilder<List<dynamic>>(
         future: listOfPosts,
         builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final post =
-                      PostModel.fromMap(snapshot.data![index]);
-                  return PostWidget(post: post);
-                },
-              );
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (BuildContext context, int index) {
+                final post = PostModel.fromMap(snapshot.data![index]);
+                return PostWidget(post: post);
+              },
+            );
             // }
           }
           return Center(child: CircularProgressIndicator());
